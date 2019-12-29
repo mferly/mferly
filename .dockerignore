@@ -1,0 +1,10 @@
+.travis.yml
+docker-compose.yml
+docker-compose.yml.bak
+docker-build.sh
+Dockerfile
+LICENSE
+README.md
+composer.json.bak
+var
+vendor

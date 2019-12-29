@@ -16,7 +16,7 @@ class DefaultController extends AbstractController
         $number = random_int(0, 100);
 
         return new Response(
-            '<html><body>Lucky number: '. $number .'</body></html>'
+            '<html><body>Marc Lucky number: '. $number .'</body></html>'
         );
     }
 }

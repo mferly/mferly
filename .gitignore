@@ -1,3 +1,6 @@
+###> xx-array ###
+docker-compose.yml.bak
+###< xx-array ###
 
 ###> symfony/framework-bundle ###
 /.env.local

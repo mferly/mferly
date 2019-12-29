@@ -1,0 +1,41 @@
+services:
+  - docker
+
+env:
+  DOCKER_COMPOSE_VERSION: 1.25.0
+
+language: php
+
+php:
+  - '7.2'
+  - '7.3'
+  - '7.4'
+
+matrix:
+  fast_finish: true
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - chmod +x test.sh
+
+before_script:
+  - travis_retry composer install -n
+  - docker-compose up -d --build
+
+script:
+  - ./test.sh
+  #- vendor/bin/phpunit
+
+after_script:
+  - docker-compose down
+
+# Use Travis' new container-based infrastructure.
+# See http://docs.travis-ci.com/user/migrating-from-legacy/#How-can-I-use-container-based-infrastructure%3F
+sudo: required

@@ -9,7 +9,7 @@ language: php
 php:
   - '7.2'
   - '7.3'
-  - '7.4'
+  - '7.4.1'
 
 matrix:
   fast_finish: true

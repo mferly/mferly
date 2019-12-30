@@ -21,7 +21,7 @@ $ docker-compose -f docker-compose-develop.yml up
 > For production we don't mount local volumes (obviously).
 
 ```bash
-$ docker-compose up
+$ docker-compose up -d
 ```
 
 ### Swarm

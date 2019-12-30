@@ -7,7 +7,7 @@ Fail() {
 
 which realpath >/dev/null || Fail "realpath not found"
 which php      >/dev/null || Fail "php not found"
-which composer      >/dev/null || Fail "composer not found"
+which composer >/dev/null || Fail "composer not found"
 
 cd "$(realpath "$(dirname "$0")"/..)"
 

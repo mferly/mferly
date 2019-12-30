@@ -12,6 +12,5 @@ COPY ./docker/nginx/conf/nginx.conf /etc/nginx/nginx.conf
 COPY ./docker/nginx/conf/xx-array.conf /etc/nginx/conf.d/xx-array.conf
 COPY ./docker/nginx/conf/self-signed.conf /etc/nginx/conf.d/self-signed.conf
 COPY ./docker/nginx/conf/ssl-params.conf /etc/nginx/conf.d/ssl-params.conf
-COPY . /var/www/xx-array
 
 RUN update-ca-certificates

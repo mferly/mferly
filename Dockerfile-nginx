@@ -14,6 +14,4 @@ COPY ./docker/nginx/conf/self-signed.conf /etc/nginx/conf.d/self-signed.conf
 COPY ./docker/nginx/conf/ssl-params.conf /etc/nginx/conf.d/ssl-params.conf
 COPY . /var/www/xx-array
 
-ENV APP_ENV prod
-
 RUN update-ca-certificates

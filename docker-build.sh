@@ -4,6 +4,8 @@ docker build --pull --force-rm --no-cache -f ./docker/nginx/Dockerfile -t xx-ngi
 docker build --pull --force-rm --no-cache -f ./docker/php/Dockerfile -t xx-php ./docker/php
 docker build --pull --force-rm --no-cache -f ./Dockerfile -t xx-app .
 
+# this is a test
+
 # docker push mferly/xx-nginx:2
 # docker push mferly/xx-php:2
 # docker push mferly/xx-app:2

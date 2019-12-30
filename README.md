@@ -21,10 +21,10 @@ $ docker-compose -f docker-compose-develop.yml up
 > For production we don't mount local volumes (obviously).
 
 ```bash
-$ docker-compose -f docker-compose-prod.yml up
+$ docker-compose -f docker-compose.yml up
 ```
 
 ### Swarm
 ```bash
-$ docker stack deploy --compose-file docker-compose-prod.yml mferly
+$ docker stack deploy --compose-file docker-compose.yml mferly
 ```

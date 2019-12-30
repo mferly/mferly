@@ -6,5 +6,6 @@ Dockerfile
 LICENSE
 README.md
 composer.json.bak
+node_modules
 var
 vendor

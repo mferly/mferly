@@ -8,6 +8,7 @@ Fail() {
 which realpath >/dev/null || Fail "realpath not found"
 which php      >/dev/null || Fail "php not found"
 which composer >/dev/null || Fail "composer not found"
+which yarn     >/dev/null || Fail "yarn not found"
 
 cd "$(realpath "$(dirname "$0")"/..)"
 
@@ -16,3 +17,6 @@ composer dump-autoload --optimize --no-dev --classmap-authoritative
 
 php bin/console cache:clear --no-warmup
 php bin/console cache:warmup
+
+yarn install
+yarn encore production

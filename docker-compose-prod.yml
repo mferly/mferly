@@ -2,14 +2,16 @@ version: '3'
 
 services:
     nginx:
-        image: xx-array_nginx:latest
+        image: mferly/xx-array_nginx:latest
         ports:
             - 8080:443
         depends_on:
             - php
+        volumes:
+            - app:/var/www/xx-array
 
     php:
-        image: xx-array_php:latest
+        image: mferly/xx-array_php:latest
         environment:
             TIMEZONE: America/Toronto
             APP_ENV: prod
@@ -20,3 +22,8 @@ services:
             replicas: 5
             restart_policy:
                 condition: on-failure
+        volumes:
+            - app:/var/www/xx-array
+
+volumes:
+    app:

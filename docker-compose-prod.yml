@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+    nginx:
+        image: xx-array_nginx:latest
+        ports:
+            - 8080:443
+        depends_on:
+            - php
+
+    php:
+        image: xx-array_php:latest
+        environment:
+            TIMEZONE: America/Toronto
+            APP_ENV: prod
+        expose:
+            - 9000
+        deploy:
+            mode: replicated
+            replicas: 5
+            restart_policy:
+                condition: on-failure

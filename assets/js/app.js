@@ -9,6 +9,9 @@
 require('../css/app.css');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
-// const $ = require('jquery');
+const $ = require('jquery'),
+      greet = require('./components/greet');
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+$(document).ready(function() {
+    $('body').prepend(greet('Marc'));
+});

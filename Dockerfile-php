@@ -31,5 +31,4 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && chmod +x /usr/local/bin/composer
 
 COPY . /var/www/xx-array
-ENV APP_ENV prod
 RUN sh /var/www/xx-array/bin/build.sh

@@ -1,5 +1,7 @@
 ###> xx-array ###
 docker-compose.yml.bak
+docker-build.sh
+test.sh
 ###< xx-array ###
 
 ###> symfony/framework-bundle ###

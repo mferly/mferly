@@ -1,10 +1,7 @@
 #!/bin/sh
 
-docker build --pull --force-rm --no-cache -f ./docker/nginx/Dockerfile -t xx-nginx ./docker/nginx
-docker build --pull --force-rm --no-cache -f ./docker/php/Dockerfile -t xx-php ./docker/php
-docker build --pull --force-rm --no-cache -f ./Dockerfile -t xx-app .
-
-# this is a test
+docker build --pull --force-rm --no-cache -f ./Dockerfile-nginx -t xx-array_nginx .
+docker build --pull --force-rm --no-cache -f ./Dockerfile-php -t xx-array_php .
 
 # docker push mferly/xx-nginx:2
 # docker push mferly/xx-php:2

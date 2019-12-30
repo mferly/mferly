@@ -2,24 +2,23 @@ version: '3'
 
 services:
     nginx:
-        build:
-            context: .
-            dockerfile: Dockerfile-nginx
+        image: mferly/xx-array_nginx:latest
         ports:
             - 8080:443
         depends_on:
             - php
-        links:
-            - php
         volumes:
             - ./:/var/www/xx-array
-        networks:
-            - app-network
+            - ./docker/nginx/certs/xx-array-cert.pem /etc/ssl/certs/xx-array-cert.pem
+            - ./docker/nginx/certs/xx-array-key.pem /etc/ssl/private/xx-array-key.pem
+            - ./docker/nginx/certs/dhparam.pem /etc/nginx/dhparam.pem
+            - ./docker/nginx/conf/nginx.conf /etc/nginx/nginx.conf
+            - ./docker/nginx/conf/xx-array.conf /etc/nginx/conf.d/xx-array.conf
+            - ./docker/nginx/conf/self-signed.conf /etc/nginx/conf.d/self-signed.conf
+            - ./docker/nginx/conf/ssl-params.conf /etc/nginx/conf.d/ssl-params.conf
 
     php:
-        build:
-            context: .
-            dockerfile: Dockerfile-php
+        image: mferly/xx-array_php:latest
         environment:
             TIMEZONE: America/Toronto
             APP_ENV: dev
@@ -32,9 +31,3 @@ services:
                 condition: on-failure
         volumes:
             - ./:/var/www/xx-array
-        networks:
-            - app-network
-
-networks:
-    app-network:
-        driver: bridge

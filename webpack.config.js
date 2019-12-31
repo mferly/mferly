@@ -24,8 +24,10 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
-    //.addEntry('page1', './assets/js/page1.js')
-    //.addEntry('page2', './assets/js/page2.js')
+
+    // add semantic-ui entries
+    .addEntry('semantic-css', './node_modules/semantic-ui/dist/semantic.min.css')
+    .addEntry('semantic-js', './node_modules/semantic-ui/dist/semantic.min.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
@@ -55,6 +57,9 @@ Encore
 
     // enables Sass/SCSS support
     //.enableSassLoader()
+
+    // enables Less support
+    // .enableLessLoader()
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()

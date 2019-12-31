@@ -76,3 +76,7 @@ $ docker-compose up -d
 ```bash
 $ docker stack deploy --compose-file docker-compose.yml mferly
 ```
+
+## To do
+* Docker alpine images
+* Tests

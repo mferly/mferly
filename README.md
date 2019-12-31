@@ -3,9 +3,9 @@
 ## Install
 
 ```bash
-$ git clone git@github.com:mferly/xx-array.git
+$ git clone git@github.com:mferly/mferly.git
 
-$ cd xx-array
+$ cd mferly
 ```
 
 ## Run

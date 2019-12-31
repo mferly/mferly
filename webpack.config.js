@@ -59,7 +59,7 @@ Encore
     //.enableSassLoader()
 
     // enables Less support
-    // .enableLessLoader()
+    //.enableLessLoader()
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()

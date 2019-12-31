@@ -16,5 +16,10 @@
     },
     "dependencies": {
         "semantic-ui": "2.4.2"
+    },
+    "resolutions": {
+        "**/**/braces": "^2.3.1",
+        "**/**/lodash": "^4.17.12",
+        "**/**/minimatch": "^3.0.2"
     }
 }

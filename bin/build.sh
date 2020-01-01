@@ -16,7 +16,7 @@ composer update --prefer-dist --no-interaction
 composer dump-autoload --optimize --no-dev --classmap-authoritative
 
 php bin/console cache:clear --no-warmup --env=prod
-php bin/console cache:warmup
+php bin/console cache:warmup --env=prod
 
 yarn
 yarn encore production

@@ -1,7 +1,5 @@
 ###> mferly ###
-docker-compose.yml.bak
 docker-build.sh
-test.sh
 ###< mferly ###
 
 ###> symfony/framework-bundle ###
@@ -9,13 +7,13 @@ test.sh
 /.env.local.php
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
+/node_modules/
 /public/bundles/
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
 
 ###> symfony/webpack-encore-bundle ###
-/node_modules/
 /public/build/
 npm-debug.log
 yarn-error.log

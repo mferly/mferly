@@ -37,7 +37,6 @@ before_install:
 
 before_script:
   - travis_retry composer update -n
-  - git checkout -- symfony.lock
   - docker build --pull --force-rm --no-cache -f ./Dockerfile-nginx -t mferly/mferly_nginx:latest .
   - docker build --pull --force-rm --no-cache -f ./Dockerfile-php -t mferly/mferly_php:latest .
   - docker-compose up -d
@@ -50,11 +49,6 @@ after_script:
 
 after_success:
   - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-
-deploy:
-  provider: script
-  script: sh ./docker-push.sh
-  on:
-    branch: master
+  - sh ./docker-push.sh
 
 sudo: required

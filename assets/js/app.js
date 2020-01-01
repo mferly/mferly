@@ -13,5 +13,5 @@ const $ = require('jquery'),
       greet = require('./components/greet');
 
 $(document).ready(function() {
-    $('body').prepend(greet('Marc'));
+    $('div .first').html(greet('human'));
 });

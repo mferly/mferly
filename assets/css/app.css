@@ -1,8 +1,12 @@
-body {
-    background: #36393e;
-    color: silver;
-    font-family: 'Roboto', sans-serif;
+code,
+kbd,
+samp {
+    font-family: monospace, monospace;
+    font-size: 14px;
+    background-color: #efefef;
+    padding: 2px;
 }
+
 /* latin */
 @font-face {
     font-family: 'Roboto';

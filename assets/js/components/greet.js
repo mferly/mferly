@@ -1,3 +1,3 @@
 module.exports = name => {
-    return `Yo yo ${name}!`;
+    return `Hello, ${name}!`;
 };

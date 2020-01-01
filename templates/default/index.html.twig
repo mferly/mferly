@@ -1,5 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    Your lucky number is <b>{{ number }}</b>.
+    <div class="ui text container" style="padding: 5em 0em;">
+        <h1 class="ui dividing header first">I'm over-written by <code>~/assets/js/app.js</code></h1>
+        <p>It appears that everything is working!? Very nice. Let's continue.</p>
+        <p>What you're seeing here has been made possible by the <code>~/src/Controller/DefaultController.php</code> so please feel free to make all the changes you need.</p>
+        <p>Make changes to the <code>index.html.twig</code> template, located in the <code>~/templates/default</code> directory, to see how this works.</p>
+        <p>Please refer to <a href="https://github.com/mferly/mferly" target="_blank">Github <i class="external alternate icon"></i></a> for more documentation.
+        <p>FYI, your lucky number is <b>{{ number }}</b> and your OLG Lotto Max numbers are <b>{{ olg }}</b>.</p>
+        <p>Good luck!</p>
+    </div>
 {% endblock %}

@@ -1,14 +1,12 @@
-# safelist
-#branches:
-  #only:
-  #- master
-  #- stable
-
 services:
   - docker
 
 env:
   DOCKER_COMPOSE_VERSION: 1.25.0
+  global:
+  - secure: bCupsZvt2M1Xs7P0c4n6dTOae3gAkXlUJ7pNGwGMaTpnM+F90eie46ki+EiW6fMQVwjSavq5qs/QbRfWDmYUJUMkZ2WU9VAmmMjA4dYSyj3C1JuiMw/MyRMZhXzqoVTFT1f1OqZM7Jbh8LHC907yexoRWnCsBJaebTpDYMSSw/78eN48m2tHN+1NKfNEBVSfWWKXIs4oC4ySyIl0O6WZ48DIPGN0Pi2djhRRbInut+AbenVKEhmBA6DCBXEjS2waD2GkMInrYzUkMexRpvNtWZWrw48KVGCZL7yeI2846s3YDa5dIrGkQqimO5nPgVGE2GhmQvPhEMFyze630oIqDZMP+s7tZmsEMhsjpmErRy+Qhtjo0+u2DvXmzpw1Q0+zVv8bwn4t6TbQ/D7bLizABcFswvktiXwB+9UrGBMZcEo7njoSyjURG9k2AQ456WqOi/bSLo2SaY44cG3av87+51v8Fd1tYJi0sHWNCfKdYmExEgdoN8/RkumIaM58A77x7stwP8i0c51aPVJagwXgXSgLc4qxwLwbUK6pbGKfAQ9WpJ8G/CR6bu77jTI7WZ7kIU+lbmAdtCt8+4p7NCQLmbsNv2BgKf4J5mcTrneGYoiYXKzlIKc5s5jJMqD9o4z+zMQt8KyYnf0M+Sles9GgY/x5PCJVV+cytqEgqxjP8Qw=
+  - secure: ySvpN1hcLp5c0BLeBT9eqbsDicbFeZeKiDKZseIBhCIep4qHitiGk7KG7hcrpGTIVKUWhDy/ZpSigI57fYF/ZGfKrdikQV1HGjZ8tBNidoW0rCJDASWq57TX3sJD3QJX5riK+jwriJDt97PpvIQBYJ+nlEFIezyFmoCXz/7COdHDxkK9DkPLau7U89VNDm24MUtlWFWf7fYOONaAju+Hcyr0znUeb1XUdywao+eK7AUnFyX9Z5kuQzJX4PBLfLZZ6ARgkgajfWJni5S+BNQWTK47TApq/mNRRTxTMZHUwBuwFG0t9uCZQS2k90IFCfICAXXPDHOhnxd02zKHe0ZRe7LsgiPhnyFjlmmD7bDv+KoZcH9ZcsddjIdIzWhtg13yNqzTLSfyhHhvJ1CvC472Dzm0OT0kKQR+vDIt3/ouqfO0tNdlgFiJpxVXevAeiaPkhLS4vkRmluQsH/u0suEDVPzBu/RVoLa7PlTtZ1rIN4JCsIBGHbgO+lJCkh0fDWGSpYwtJoXZMjqITqtkHomTBTojqyi4Jl/3XS+kErP7DS6Ju5iBvKWTvW5qwzQyCVbytEcVT7QirsVkKsokc/rPcP2UUA736t7jV17uENHCV7OenQD5EqsVC02iDrjGmqxOA7wgmtrnD2BcxW//LvC0FCdZ3gVac+fxm7f7+jMhIV8=
+  - secure: xwaP7FweQHS+W54hKDkoq8qjpUmYpB5qohnX/lCe1HNLX7nTRpxvjGVqhb+4ioIy/9NGaFfknyEeZDSwwb6AM5bikkDOhEtKwe6kDTHTcH+dMrF3GGq9zohHeyLXoo7fXFpYzqaVtopfmcTFrymb8hDqAgd8gjhc31YcIaNjqTtCKTjnfkWENHp4Se8WYvgtgzhfMb44QEFRMMjNbC1dZFiAeubHrLrusaZMnkqNgVuM9lMkDAwrGqs/8XqHsNnpbpxinrHHbemSXoXjmhbA2HZJ3ED1fvVQyFipbonzp4cTpWE8JeLm4uFNtnexwq0Y/gbR2b8HiJOW3F40SmwlsNoXlvDvpoOqE5taaRD3Hc01uEzfTVwcHVeHHEzw/AaE+0tT7G+wInoFZ/VGuWrMhzIRMUW4sNv/9z4c66ptBp0qkMH4wSZAivoyhuSlQw0nOH5x31msYDCiNci5Ij0ARk07sdiecoT3v3vfY91wu4ObK9dNqXISrkkubgmVGdyi/RBCRRJgEIOkflAWAF0raiwTkGx73a6bQIM/oFYtyMnEPkcq6yeT7czJG/J4lEY0raKQGwxjVPKCUquqrkBgiUOddAc8XDFLkbKRPjFCExzlfjcf1wf2g/rt6iPoZYQ+TyFKVPzLJnfjqztlB7MQijUImsQYMlhFxUjk0xI9WAI=
 
 language: php
 
@@ -22,13 +20,14 @@ matrix:
 
 cache:
   directories:
-    - $HOME/.composer/cache
+    - "$HOME/.composer/cache"
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
+  - chmod +x docker-push.sh
   - chmod +x test.sh
 
 before_script:
@@ -38,20 +37,18 @@ before_script:
   - docker-compose up -d
 
 script:
-  - ./test.sh
-  - docker images
-  #- vendor/bin/phpunit
+  - "./test.sh"
 
 after_script:
   - docker-compose down
 
 after_success:
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-      docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-      docker push mferly/mferly_nginx:latest;
-      docker push mferly/mferly_php:latest;
-    fi
+  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
 
-# Use Travis' new container-based infrastructure.
-# See http://docs.travis-ci.com/user/migrating-from-legacy/#How-can-I-use-container-based-infrastructure%3F
+deploy:
+  provider: script
+  script: sh ./docker-push.sh
+  on:
+    branch: master
+
 sudo: required

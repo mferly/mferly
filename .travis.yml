@@ -1,8 +1,8 @@
 # safelist
-branches:
-  only:
-  - master
-  - stable
+#branches:
+  #only:
+  #- master
+  #- stable
 
 services:
   - docker
@@ -33,14 +33,24 @@ before_install:
 
 before_script:
   - travis_retry composer install -n
-  - docker-compose up -d --build
+  - docker build --pull --force-rm --no-cache -f ./Dockerfile-nginx -t mferly/mferly_nginx:latest .
+  - docker build --pull --force-rm --no-cache -f ./Dockerfile-php -t mferly/mferly_php:latest .
+  - docker-compose up -d
 
 script:
   - ./test.sh
+  - docker images
   #- vendor/bin/phpunit
 
 after_script:
   - docker-compose down
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+      docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+      docker push mferly/mferly_nginx:latest;
+      docker push mferly/mferly_php:latest;
+    fi
 
 # Use Travis' new container-based infrastructure.
 # See http://docs.travis-ci.com/user/migrating-from-legacy/#How-can-I-use-container-based-infrastructure%3F

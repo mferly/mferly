@@ -1,6 +1,11 @@
 services:
   - docker
 
+branches:
+  only:
+    - master
+    - stable
+
 env:
   DOCKER_COMPOSE_VERSION: 1.25.0
   global:

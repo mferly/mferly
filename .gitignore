@@ -1,5 +1,4 @@
 ###> mferly ###
-docker-compose.yml.bak
 docker-build.sh
 test.sh
 ###< mferly ###

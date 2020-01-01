@@ -1,11 +1,9 @@
 .travis.yml
 docker-compose.yml
-docker-compose.yml.bak
+docker-compose-develop.yml
 docker-build.sh
-Dockerfile
 LICENSE
 README.md
-composer.json.bak
 node_modules
 var
 vendor

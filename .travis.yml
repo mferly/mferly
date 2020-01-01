@@ -48,7 +48,7 @@ after_script:
   - docker-compose down
 
 after_success:
-  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
   - sh ./docker-push.sh
 
 sudo: required

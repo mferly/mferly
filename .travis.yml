@@ -36,7 +36,7 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 before_script:
-  - travis_retry composer install -n
+  - travis_retry composer update -n
   - docker build --pull --force-rm --no-cache -f ./Dockerfile-nginx -t mferly/mferly_nginx:latest .
   - docker build --pull --force-rm --no-cache -f ./Dockerfile-php -t mferly/mferly_php:latest .
   - docker-compose up -d

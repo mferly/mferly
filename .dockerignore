@@ -1,8 +1,6 @@
 .travis.yml
 docker-compose.yml
-docker-compose-develop.yml
 docker-build.sh
-LICENSE
 README.md
 node_modules
 var

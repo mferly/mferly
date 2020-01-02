@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/mferly/mferly.svg?branch=master)](https://travis-ci.com/mferly/mferly)
+
 # What is this thing?
 Handy boilerplate to get up and running with the following:
 - PHP-FPM v7.4.1

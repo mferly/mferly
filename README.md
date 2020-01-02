@@ -38,7 +38,7 @@ You'll need to edit a few files before you get up and running. They're are:
         * COPY . /var/www/app
         * RUN sh /var/www/app/bin/build.sh
 
-Once all of that is sorted out move on down to the 'Run' section.
+Once all of that is sorted out move on down to the 'Run' section (but first check out 'Certs/SSL' if you want SSL).
 
 ## Certs/SSL
 
@@ -86,6 +86,17 @@ Now we..
 Alternatively, when you're ready to go *prime time*, you can look into [Let's Encrypt](https://letsencrypt.org/) as a free solution to your SSL needs. Local, self-signed certs (as we have here) won't suffice in production, but they're easy to setup to get the ball rolling.
 
 # Run
+
+## Build our images
+```bash
+/**
+ * Replace PROJECT_NAME with your project name
+ *   eg. my_app
+ * The following will build and tag your docker images
+ *   per PROJECT_NAME
+ */
+$ sh ./docker-build.sh PROJECT_NAME
+```
 
 ## Dev
 > Develop is mounted to local app directory for ease of development via volumes.

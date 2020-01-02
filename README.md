@@ -4,6 +4,8 @@ Handy boilerplate to get up and running with the following:
 - Symfony v5.x
 - Nginx
 - Docker
+- jQuery
+- Monolog
 
 # Install
 
@@ -61,6 +63,21 @@ Alternatively, when you're ready to go *prime time*, you can look into [Let's En
 ## Dev
 > Develop is mounted to local app directory for ease of development via volumes.
 
+### Yarn
+[Install Yarn](https://yarnpkg.com/en/docs/install) and then run it to install the packages in `package.json`.
+
+```bash
+$ yarn
+```
+
+Now we can run the following command to *watch* our `.js` and `.css` changes.
+
+```bash
+$ yarn run encore dev --watch
+```
+
+Then spin up the develop env.
+
 ```bash
 $ docker-compose -f docker-compose-develop.yml up
 ```
@@ -76,6 +93,14 @@ $ docker-compose up -d
 ```bash
 $ docker stack deploy --compose-file docker-compose.yml mferly
 ```
+
+## Logging
+We're using Monolog (more specifically the [symfony/monolog-bundle](https://github.com/symfony/monolog-bundle)).
+
+More resources here:
+* https://github.com/symfony/monolog-bundle
+* https://symfony.com/doc/current/logging.html
+* https://github.com/Seldaek/monolog
 
 ## To do
 * Docker alpine images

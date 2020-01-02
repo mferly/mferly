@@ -1,5 +1,5 @@
 ###> mferly ###
-docker-build.sh
+docker-push.sh
 ###< mferly ###
 
 ###> symfony/framework-bundle ###

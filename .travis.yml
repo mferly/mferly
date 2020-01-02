@@ -33,6 +33,7 @@ before_install:
 
 before_script:
   - travis_retry composer update -n
+  - sh ./docker-build.sh app
   - docker-compose up -d
 
 script:

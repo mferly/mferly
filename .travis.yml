@@ -33,7 +33,7 @@ before_install:
 
 before_script:
   - travis_retry composer update -n
-  - docker-compose up -d
+  - docker-compose -e $APP_NAME up -d
 
 script:
   # just a test script, literally.

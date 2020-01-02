@@ -2,17 +2,17 @@ version: '3'
 
 services:
     nginx:
-        image: mferly/mferly_nginx:latest
+        image: ${APP_NAME}_nginx:latest
         ports:
             - 443:443
             - 80:80
         depends_on:
             - php
         volumes:
-            - app:/var/www/mferly
+            - app:/var/www/${APP_NAME}
 
     php:
-        image: mferly/mferly_php:latest
+        image: ${APP_NAME}_php:latest
         environment:
             TIMEZONE: America/Toronto
             APP_ENV: prod
@@ -24,7 +24,7 @@ services:
             restart_policy:
                 condition: on-failure
         volumes:
-            - app:/var/www/mferly
+            - app:/var/www/${APP_NAME}
 
 volumes:
     app:

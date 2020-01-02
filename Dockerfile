@@ -39,5 +39,5 @@ RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - \
     && apt-get install -y --no-install-recommends nodejs yarn \
     && apt-get autoremove -y
 
-COPY . /var/www/mferly
-RUN sh /var/www/mferly/bin/build.sh
+COPY . /var/www/app
+RUN sh /var/www/app/bin/build.sh

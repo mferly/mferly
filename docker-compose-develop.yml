@@ -2,7 +2,9 @@ version: '3'
 
 services:
     nginx:
-        image: ${APP_NAME}_nginx:latest
+        build:
+            context: ./docker/nginx
+            dockerfile: Dockerfile
         ports:
             - 443:443
             - 80:80
@@ -12,7 +14,7 @@ services:
         # Edit APP_NAME in .env
         volumes:
             # mount your project dir
-            - ./:/var/www/${APP_NAME}
+            - ./:${APP_PATH}
 
             # mount the Nginx .conf's that we need for dev
             - ./docker/nginx/conf/nginx.conf /etc/nginx/nginx.conf
@@ -40,7 +42,9 @@ services:
             # - ./docker/nginx/conf/ssl-params.conf /etc/nginx/conf.d/ssl-params.conf
 
     php:
-        image: ${APP_NAME}_php:latest
+        build:
+            context: .
+            dockerfile: Dockerfile
         environment:
             TIMEZONE: America/Toronto
             APP_ENV: dev
@@ -53,4 +57,4 @@ services:
                 condition: on-failure
         volumes:
             # mount our project dir for dev
-            - ./:/var/www/${APP_NAME}
+            - ./:${APP_PATH}

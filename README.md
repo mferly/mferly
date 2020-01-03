@@ -16,27 +16,27 @@ $ git clone git@github.com:mferly/mferly.git
 ```
 
 You'll need to edit a few files before you get up and running. They're are:
-* ./docker/nginx/conf/app.conf
-    * root /path/to/your/project;
-    * server_name localhost; # assuming you need to
+* `./docker/nginx/conf/app.conf`
+    * `root /path/to/your/project;`
+    * `server_name localhost; # assuming you need to`
     * Setup up SSL if you desire.
-* ./docker/nginx/Dockerfile
+* `./docker/nginx/Dockerfile`
     * Ensure paths are correct
     * Setup SSL if desired
-* ./.env
+* `./.env`
     * Change APP_NAME to whatever you want
         * It's used in:
-            * docker-compose
-            * docker-compose-develop.yml
-* ./docker-compose.yml
+            * `docker-compose.yml`
+            * `docker-compose-develop.yml`
+* `./docker-compose.yml`
     * Not much, if anything, that needs changing in here
-* ./docker-compose-develop.yml
+* `./docker-compose-develop.yml`
     * Changes needed if you want SSL
-* ./Dockerfile
+* `./Dockerfile`
     * Add/remove PHP packages as needed
     * Also check that the following are correct for your env:
-        * COPY . /var/www/app
-        * RUN sh /var/www/app/bin/build.sh
+        * `COPY . /var/www/app`
+        * `RUN sh /var/www/app/bin/build.sh`
 
 Once all of that is sorted out move on down to the 'Run' section (but first check out 'Certs/SSL' if you want SSL).
 
